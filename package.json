@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Script to build ChiuKong Mincho",
   "scripts": {
-    "start": "cd script && npx ts-node  -r tsconfig-paths/register --transpile-only index.ts",
+    "start": "cd script && npx ts-node -r tsconfig-paths/register --transpile-only index.ts",
     "dev": "cd script && npx ts-node -r tsconfig-paths/register index.ts",
     "test": "cd script && node --test -r ts-node/register -r tsconfig-paths/register **/*/*.test.ts"
   },

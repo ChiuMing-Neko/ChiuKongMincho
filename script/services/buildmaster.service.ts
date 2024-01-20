@@ -36,18 +36,26 @@ class BuildMasterService {
       // Validate the source and warn the potential problem in source
       consola.info("Start to validate raw font source...");
       if (isEqual(glyphlists[0], glyphlists[1])) {
-        const sourceCIDs = glyphlists[0]
-          .filter((cidValue) => cidValue !== ".notdef")
-          .map((cidValue) => {
-            const cidString = cidValue.match(/\d+/g)?.join("");
-            if (!cidString) throw new Error("Not CID");
-            return parseInt(cidString, 10);
-          })
-          .sort();
+        const getSourceCIDs = (glyphlist: string[]) => (
+          glyphlist
+            .filter((cidValue) => cidValue !== ".notdef")
+            .map((cidValue) => {
+              const cidString = cidValue.match(/\d+/g)?.join("");
+              if (!cidString) throw new Error("Not CID");
+              return parseInt(cidString, 10);
+            })
+            .sort((a, b) => a - b)
+        );
+        const extraLightSourceCIDs = getSourceCIDs(glyphlists[0]);
+        const heavySourceCIDs = getSourceCIDs(glyphlists[1]);
         const fontdataCIDs = Array.from(fontdata.newGlyphInfoData.keys()).sort();
-        const compareResult = isEqual(sourceCIDs, fontdataCIDs);
-        if (!compareResult) {
-          const diffArray = difference(sourceCIDs, fontdataCIDs);
+        const compareExtraLightResult = isEqual(extraLightSourceCIDs, fontdataCIDs);
+        const compareHeavyResult = isEqual(heavySourceCIDs, fontdataCIDs);
+        if (!compareExtraLightResult || !compareHeavyResult) {
+          const diffArray = [
+            ...difference(extraLightSourceCIDs, fontdataCIDs),
+            ...difference(heavySourceCIDs, fontdataCIDs),
+          ];
           consola.warn(`CID Mismatched. Please check: [${diffArray.join(", ")}]`);
         } else {
           consola.info("Source file pass validation");
