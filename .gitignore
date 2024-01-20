@@ -1,0 +1,6 @@
+.vscode
+.env
+node_modules
+script/python/virtualenv
+output
+temp

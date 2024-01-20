@@ -1,0 +1,31 @@
+{
+  "typescript": {
+    "useTabs": false,
+    "lineWidth": 100,
+    "indentWidth": 2,
+    "newLineKind": "lf",
+    "quoteStyle": "preferDouble",
+    "arrowFunction.useParentheses": "force",
+    "binaryExpression.linePerExpression": true,
+    "quoteProps": "consistent",
+    "module.sortImportDeclarations": "maintain"
+  },
+  "json": {
+  },
+  "markdown": {
+  },
+  "ruff": {
+    "lineLength": 100,
+    "indentWidth": 2
+  },
+  "excludes": [
+    "**/node_modules",
+    "**/*-lock.json"
+  ],
+  "plugins": [
+    "https://plugins.dprint.dev/typescript-0.88.9.wasm",
+    "https://plugins.dprint.dev/json-0.19.1.wasm",
+    "https://plugins.dprint.dev/markdown-0.16.3.wasm",
+    "https://plugins.dprint.dev/ruff-0.0.8.wasm"
+  ]
+}

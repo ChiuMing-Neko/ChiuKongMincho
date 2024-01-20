@@ -1,0 +1,15 @@
+{
+  "fontname": "ChiuKongMincho",
+  "fontFullname": "ChiuKong Mincho",
+  "fontVersion": "1.000",
+  "fontVariants": ["CL", "MN", "JP"],
+  "fontWeights": ["EL", "L", "R", "M", "SM", "B", "H"],
+  "sourceDirName": "CKMincho",
+  "sourceRawFontNames": ["CKMincho.EL.pfa", "CKMincho.H.pfa"],
+  "refSourceDirName": "SHS",
+  "refSourceRawFontNames": ["SHS.EL.pfa", "SHS.H.pfa"],
+  "refSourceMasterFontNames": ["SourceHanSerifVF-ExtraLight-Ideographs", "SourceHanSerifVF-Heavy-Ideographs"],
+  "fontDataName": "fontdata",
+  "nodeVersion": "20.11.0",
+  "pythonVersion": "3.12.0"
+}
