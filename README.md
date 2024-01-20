@@ -31,21 +31,21 @@
 
 中文
 
-> **字圖字樣：** （字圖字樣圖片）
-> **字符：** （字符）
-> **碼位：** （U+XXXX 16 進制格式）
-> **CID：** （CID）
-> **優先度：** （急迫-緊急-高-中-低-無關緊要-應重新設計）
-> **理由：** （其理由是？）
+> -   **字圖字樣：** （字圖字樣圖片）
+> -   **字符：** （字符）
+> -   **碼位：** （U+XXXX 16 進制格式）
+> -   **CID：** （CID）
+> -   **優先度：** （急迫-緊急-高-中-低-無關緊要-應重新設計）
+> -   **理由：** （其理由是？）
 
 English
 
-> **Glyph Shape:** (Picture of desire glyph)
-> **Character:** (Character)
-> **Codepoint:** (in U+XXXX hexadecimal format)
-> **CID:** (CID)
-> **Priority:** (Urgent-Critical-High-Medium-Low-Very Low-Redesign)
-> **Reason:** (Support Reason)
+> -   **Glyph Shape:** (Picture of desire glyph)
+> -   **Character:** (Character)
+> -   **Codepoint:** (in U+XXXX hexadecimal format)
+> -   **CID:** (CID)
+> -   **Priority:** (Urgent-Critical-High-Medium-Low-Very Low-Redesign)
+> -   **Reason:** (Support Reason)
 
 **優先度說明：** 若相關字符屬於 jf7000 當務字集範圍內且默認字圖仍未使用印刷體筆形的字圖字樣，可考慮將優先度設定爲緊急或急迫。
 
