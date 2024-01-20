@@ -59,7 +59,7 @@
     "@typescript-eslint/dot-notation": ["error", { "allowIndexSignaturePropertyAccess": true }],
     "class-methods-use-this": ["error", { "enforceForClassFields": false }],
     "function-paren-newline": "off",
-    "linebreak-style": ["warn", "unix"],
+    "linebreak-style": ["off", "unix"],
     "import/no-extraneous-dependencies": "off",
     // "implicit-arrow-linebreak": "off",
     "object-curly-newline": ["off"],
