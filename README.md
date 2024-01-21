@@ -79,7 +79,15 @@ Before you begin, ensure you have met the following requirements:
 -   Python >= 3.12
 -   Perl >= 5.38
 
-**Note:** In Windows, Python will be accessed using `python`, and on other platforms, it is generally accessed using `python3`. Please ensure that you have the correct Python version installed in accordance with your system's Python environment command.
+**Note:** Python is typically invoked with the `python` command. But on UNIX-like systems (macOS, Linux, etc.), the command is usually `python3`. Ensure that you use the appropriate command for your operating system and that the correct version of Python is installed.
+
+### Build the script
+
+To create a production-ready build of the project, execute the following command:
+
+```shell
+npm run build
+```
 
 ### Installation
 
@@ -89,12 +97,24 @@ Install the necessary dependencies:
 npm install
 ```
 
+Then if you would like to build the production ready script, use following command:
+
+```shell
+npm run build
+```
+
 ### Run
 
 The build script is currently under development and not fully prepared. However, you can build the variable font master with the following command:
 
 ```shell
 npm run start -- --build
+```
+
+Alternatively, to directly run the script in TypeScript without compiling, you can use:
+
+```shell
+npm run dev -- --build
 ```
 
 Please note that this command is a temporary solution until the build script and first version of ChiuKong Mincho is finalized.

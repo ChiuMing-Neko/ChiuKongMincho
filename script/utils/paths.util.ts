@@ -1,7 +1,10 @@
 import path from "path";
 
 export const rootDir = path.resolve(__dirname, "../../");
-export const scriptDir = path.resolve(rootDir, "script");
+export const scriptDir = path.resolve(
+  rootDir,
+  `${process.env.NODE_ENV === "production" ? "dist" : "script"}`,
+);
 export const sourcesDir = path.resolve(rootDir, "sources");
 export const masterDir = path.resolve(rootDir, "master");
 export const outputDir = path.resolve(rootDir, "output");
