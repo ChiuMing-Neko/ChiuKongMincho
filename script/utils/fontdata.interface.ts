@@ -22,6 +22,13 @@ interface UVSInfo {
   collection: string;
 }
 
+interface GlyphInfo {
+  codepoint: string;
+  selector?: string;
+  collection?: string;
+  glyphName: string;
+}
+
 class FontDataInterface {
   /* Properties */
 
@@ -30,8 +37,8 @@ class FontDataInterface {
   #mappingData: Map<string, MappingInfo>;
   /** @type Map<codepoint, Map<selector, UVSInfo>> */
   #uvsInfoData: Map<string, Map<string, UVSInfo>>;
-  /** @type Map<cid, glyphname> */
-  #newGlyphInfoData: Map<number, string>;
+  /** @type Map<cid, GlyphInfo> */
+  #newGlyphInfoData: Map<number, GlyphInfo>;
 
   /* Constructor, Initialization, and getInstance */
 
@@ -134,6 +141,46 @@ class FontDataInterface {
     });
 
     return sortedMap;
+  }
+
+  public getUnusedGlyphCIDs() {
+    // Placeholder, all Ext-A and URO Han characters cid range to prevent GSUB bug in fea files
+    const cidRangeInConcern = ["2445-47515"];
+
+    // Prepare used cid set
+    const usedCIDs = new Set<number>();
+    this.#mappingData.forEach((mappingInfo) => {
+      Object.values(mappingInfo).forEach((cid) => {
+        if (cid) usedCIDs.add(cid);
+      });
+    });
+    this.#uvsInfoData.forEach((uvsInfoMap) => {
+      uvsInfoMap.forEach((uvsInfo) => {
+        usedCIDs.add(uvsInfo.cid);
+      });
+    });
+    this.#newGlyphInfoData.forEach((_glyphInfo, cid) => usedCIDs.add(cid));
+
+    // Prepare unused cid set
+    const unusedCIDs = new Set<number>();
+    cidRangeInConcern.forEach((rangeInfo) => {
+      const [startStr, endStr] = rangeInfo.includes("-")
+        ? rangeInfo.split("-").map((value) => value.trim())
+        : [rangeInfo, rangeInfo];
+
+      const startPt = parseInt(startStr, 10);
+      const endPt = parseInt(endStr, 10);
+
+      if (Number.isNaN(startPt) || Number.isNaN(endPt)) {
+        throw new Error(`Invalid range string: ${rangeInfo}`);
+      }
+
+      for (let i = startPt; i <= endPt; i += 1) {
+        if (!usedCIDs.has(i)) unusedCIDs.add(i);
+      }
+    });
+
+    return unusedCIDs;
   }
 
   public async writeMappingData(fontVariants?: string[]) {
@@ -364,13 +411,24 @@ class FontDataInterface {
     worksheet.eachRow((row, rowNumber) => {
       if (rowNumber > 1) {
         const cid = parseInt(row.getCell(header["CID"]).text, 10);
+        const codepoint = row.getCell(header["Unicode"]).text;
+        const selector = row.getCell(header["VS"]).text;
+        const collection = row.getCell(header["集合"]).text;
         const glyphName = row.getCell(header["替換字圖名稱"]).text;
         if (this.#newGlyphInfoData.has(cid)) {
           consola.warn(
             `Duplicate cid "${cid}" is detected. Are you sure "${glyphName}" has unique cid?`,
           );
         }
-        this.#newGlyphInfoData.set(cid, glyphName);
+        this.#newGlyphInfoData.set(
+          cid,
+          {
+            codepoint,
+            selector: selector !== "/" ? selector : undefined,
+            collection: collection !== "/" ? collection : undefined,
+            glyphName,
+          },
+        );
       }
     });
     // Perform further operation

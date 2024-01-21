@@ -80,6 +80,7 @@ class BuildMasterService {
     const refSourceRawNames = getRefFontRawSourceNames();
     const cidLayerNames = getRefFontMasterFontNames();
     const newGlyphInfo = fontdata.newGlyphInfoData;
+    const unusedGlyphs = Array.from(fontdata.getUnusedGlyphCIDs());
 
     const prepareVFMasterPromises = [
       BuildMasterService.prepareFontMasters({
@@ -89,6 +90,7 @@ class BuildMasterService {
         cidLayerName: cidLayerNames[0],
         operationSignature: "EL",
         replaceGlyph: Array.from(newGlyphInfo.keys()),
+        unusedGlyphs,
       }),
       BuildMasterService.prepareFontMasters({
         source: path.resolve(sourcesDir, sourceDirName, sourceRawNames[1]),
@@ -97,6 +99,7 @@ class BuildMasterService {
         cidLayerName: cidLayerNames[1],
         operationSignature: "H",
         replaceGlyph: Array.from(newGlyphInfo.keys()),
+        unusedGlyphs,
       }),
     ];
     await Promise.all(prepareVFMasterPromises);
