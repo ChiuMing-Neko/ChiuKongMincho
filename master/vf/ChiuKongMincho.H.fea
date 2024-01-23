@@ -2936,17 +2936,17 @@ feature dlig {
   substitute \1538 \1540 by \1559;
   # Ideograph Ligatures
   substitute \9833 \12138 by \2188; # JP/KR
-  substitute \9834 \12138 by \2188; # CN 
-  substitute \9835 \12138 by \2188; # TW/HK
+  # substitute \9834 \12138 by \2188; # CN 
+  # substitute \9835 \12138 by \2188; # TW/HK
   substitute \14054 \22573 by \2313; # ALL
   substitute \16878 \18537 by \2311; # JP/CN/TW/HK
-  substitute \62171 \18537 by \2311; # KR
+  # substitute \62171 \18537 by \2311; # KR
   substitute \20256 \23122 by \2314; # JP/KR
-  substitute \20256 \23123 by \2314; # CN/TW/HK
+  # substitute \20256 \23123 by \2314; # CN/TW/HK
   substitute \20304 \12138 by \2312; # JP/KR
   substitute \21091 \17188 \9909 \28693 by \2315; # JP
-  substitute \21091 \17188 \9909 \58867 by \2315; # KR
-  substitute \21091 \17188 \9910 \28694 by \2316; # CN/TW/HK
+  # substitute \21091 \17188 \9909 \58867 by \2315; # KR
+  # substitute \21091 \17188 \9910 \28694 by \2316; # CN/TW/HK
   # Latin + Ideograph Ligatures
   substitute \18 \17 \20657 by \2134;
   substitute \18 \18 \20657 by \2135;
