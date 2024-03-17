@@ -1,0 +1,36 @@
+{
+  "name": "@chiukong-mincho/build",
+  "version": "0.0.1",
+  "description": "Script to build ChiuKong Mincho",
+  "scripts": {
+    "start": "cd dist && cross-env NODE_ENV=production node index.js",
+    "dev": "cd script && npx ts-node -r tsconfig-paths/register index.ts",
+    "build": "npx tsc --p tsconfig.build.json && npx tsc-alias -p tsconfig.build.json && npm run copy-dependencies",
+    "copy-dependencies": "npx copyfiles -u 1 ./script/python/**/* ./dist && npx copyfiles -u 1 ./script/dependencies/**/* ./dist",
+    "test": "cd script && node --test -r ts-node/register -r tsconfig-paths/register **/*/*.test.ts"
+  },
+  "author": "ChiuMing-Neko",
+  "license": "MIT",
+  "dependencies": {
+    "consola": "^3.2.3",
+    "exceljs": "^4.4.0",
+    "lodash": "^4.17.21",
+    "move-file": "2.1.0"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.202",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "copyfiles": "^2.4.1",
+    "cross-env": "^7.0.3",
+    "dprint": "^0.45.0",
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.8",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.3.3"
+  }
+}
