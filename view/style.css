@@ -1,0 +1,148 @@
+@font-face {
+  font-family: "ChiuKong Gothic CL";
+  src: url("./data/ChiuKongMincho.otf") format("opentype");
+  font-display: block;
+  font-weight: 250 900;
+}
+
+.cl-variant {
+  font-family: "ChiuKong Gothic CL";
+  font-feature-settings: "ss01";
+}
+
+.mn-variant {
+  font-family: "ChiuKong Gothic CL";
+  font-feature-settings: "ss02";
+}
+
+.jp-variant {
+  font-family: "ChiuKong Gothic CL";
+  font-feature-settings: "ss03";
+}
+
+.uvs-container {
+  font-family: "ChiuKong Gothic CL";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.card-header {
+  margin-bottom: 20px;
+}
+
+.card-title {
+  margin-top: 0;
+  font-weight: bolder;
+  margin-bottom: 24px;
+}
+
+.card-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.badge {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+}
+
+.card-style-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.character {
+  font-size: 96px;
+  margin-bottom: 10px;
+}
+
+.character-uvs {
+  font-size: 72px;
+  margin-bottom: 10px;
+}
+
+.label-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.label {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.card-footer {
+  margin-top: 20px;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pagination button {
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.page-numbers {
+  display: flex;
+  gap: 6px;
+}
+
+.page-number {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 4px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.page-number.active {
+  background-color: #333;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .pagination button,
+  .page-number {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}

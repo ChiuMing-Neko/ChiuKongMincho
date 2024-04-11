@@ -108,13 +108,13 @@ npm run build
 The build script is currently under development and not fully prepared. However, you can build the variable font master with the following command:
 
 ```shell
-npm run start -- --build
+npm run start -- --build-dev
 ```
 
 Alternatively, to directly run the script in TypeScript without compiling, you can use:
 
 ```shell
-npm run dev -- --build
+npm run dev -- --build-dev
 ```
 
 Please note that this command is a temporary solution until the build script and first version of ChiuKong Mincho is finalized.

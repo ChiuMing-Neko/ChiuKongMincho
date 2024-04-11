@@ -250,6 +250,19 @@ class FontDataInterface {
     await Promise.all(writePromises);
   }
 
+  public async exportNewGlyphsData() {
+    const { newGlyphInfoData } = this;
+    const targetDir = path.resolve(sourcesDir, getFontSourceDirName());
+    const lineString = ["#Unicode\tChar\tCID\tGlyphName"];
+    newGlyphInfoData.forEach((glyphInfo, cid) => {
+      const { codepoint, glyphName } = glyphInfo;
+      const character = String.fromCodePoint(parseInt(codepoint, 16));
+      lineString.push(`${codepoint}\t${character}\t${cid}\t${glyphName}`);
+    });
+
+    await fs.writeFile(path.resolve(targetDir, "new_glyphs.txt"), lineString.join("\n"), "utf-8");
+  }
+
   public async writeUVSData() {
     // Initialize required variables
     const fontSourceDirName = getFontSourceDirName();

@@ -4,7 +4,7 @@ import { getFontname } from "@/utils/fontinfo.util";
 import { masterDir } from "@/utils/paths.util";
 
 class BuildFontService {
-  public static async buildFontDev() {
+  public static async buildFontDev(variant: string) {
     // Placeholder for fast generate dev font
     const vfDir = path.resolve(masterDir, "vf");
     const fontname = getFontname();
@@ -17,7 +17,7 @@ class BuildFontService {
         `-ff ${fontname}.${weight}.fea`,
         `-mf ${path.resolve(masterDir, "FontMenuNameDB.VF")}`,
         "-r -nS -cs 1",
-        `-ch ${path.resolve(masterDir, `${fontname}CL.cmap`)}`,
+        `-ch ${path.resolve(masterDir, `${fontname}${variant}.cmap`)}`,
         `-ci ${path.resolve(masterDir, `${fontname}_sequences.txt`)}`,
         `-o ${path.resolve(vfDir, `${fontname}VF-${weight}-Master.otf`)}`,
       ];
