@@ -21,12 +21,12 @@ class BuildDevCommand implements Command {
     await this.#buildMaster.constructMappingFile();
     await this.#buildMaster.constructVariationSequenceFile();
     await this.#buildMaster.constructFontVariableMasterInstance();
+    // Export data
+    await fontDataInterface.exportNewGlyphsData();
     // Build DEV fea
     await this.#feature.writeDevGSUBfile("CL");
     // Build Variable Font
     await this.#buildFont.buildFontDev("CL");
-    // Export data
-    await fontDataInterface.exportNewGlyphsData();
   }
 }
 

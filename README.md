@@ -5,11 +5,31 @@
 ![ChiuKongMinchoLogo_Light](public/images/ChiuKongMinchoLogo_Light.svg#gh-light-mode-only)
 ![ChiuKongMinchoLogo_Dark](public/images/ChiuKongMinchoLogo_Dark.svg#gh-dark-mode-only)
 
+<sup><sub><strong>註：</strong> 使用圖片展示「秋空󠄁黑體」這一名稱時，名稱中的「空」應爲如圖所示的「空󠄁」形（「⿱穴工」/穴從八形）而非「空󠄀」（「⿱宂工」/穴從儿形）形。 其對應的異體字選擇符碼位爲U+E0101或U+E0103。</sub></sup>
+
 ## 說明
 
-本專案仍在製作中，僅作開源文件用途。
+> **本專案仍在製作中，僅作開源文件用途。**
 
-目前預設不同默認字圖版本有 CL、MN 及 JP 版本，而 JP 版本爲 JIS2004 字體。
+秋空󠄁明󠄁朝󠄁（ChiuKong Mincho）是一款以思源明體爲基礎進行二次修改而成，使用傳統印刷體筆形設計，同時整合了異體字選擇器特性的一般及純文本異體字編排用途的字體專案。
+
+## 分流版
+
+> 由於本專案所基於的思源明體2.002相較於原本的1.001版本大量刪減了原有的JP字圖，逐字恢復所有被刪減字圖並不現實，因此不保證在常用字及次常用字範圍以外的字圖使用傳統明朝體筆形設計。
+
+### 舊式活字慣用字形（CL）
+
+參考舊時出版物的慣用活字字樣的傳統活字印刷慣用字形，字形選取基準大致上與日本的《表外漢字字體表》相同。適合使用傳統漢字的中文書面語排版場景使用。
+
+### 現代折衷印刷體慣用字形（MN）
+
+兼顧當代正體中文用戶慣用字形的新舊混合字形，適合使用傳統漢字的中文書面語排版場景使用。
+
+### JIS X 0213:2004規格字形（JP）
+
+基於原版思源明體JP版進行少量修改，對一些錯誤字圖進行了修正，並參考日本商業字體中常見的容許設計差範圍內降低與表外漢字的字形差異。其字形符合Adobe-Japan及JIS X 0213:2004規格，支援規格及字形大致與Pr6N字體相同，適合現代日語書面語排版場景使用。
+
+## 相關常見問題
 
 ## 提交 Issue 須知
 
@@ -31,27 +51,29 @@
 
 中文
 
-> -   **字圖字樣：** （字圖字樣圖片）
-> -   **字符：** （字符）
-> -   **碼位：** （U+XXXX 16 進制格式）
-> -   **CID：** （CID）
-> -   **優先度：** （急迫-緊急-高-中-低-無關緊要-應重新設計）
-> -   **理由：** （其理由是？）
+> - **字圖字樣：** （字圖字樣圖片）
+> - **字符：** （字符）
+> - **碼位：** （U+XXXX 16 進制格式）
+> - **CID：** （CID）
+> - **優先度：** （急迫-緊急-高-中-低-無關緊要-應重新設計）
+> - **理由：** （修改字圖的理由）
 
 English
 
-> -   **Glyph Shape:** (Picture of desire glyph)
-> -   **Character:** (Character)
-> -   **Codepoint:** (in U+XXXX hexadecimal format)
-> -   **CID:** (CID)
-> -   **Priority:** (Urgent-Critical-High-Medium-Low-Very Low-Redesign)
-> -   **Reason:** (Support Reason)
+> - **Glyph Shape:** (Picture of desire glyph)
+> - **Character:** (Character)
+> - **Codepoint:** (in U+XXXX hexadecimal format)
+> - **CID:** (CID)
+> - **Priority:** (Urgent-Critical-High-Medium-Low-Very Low-Redesign)
+> - **Reason:** (Support Reason)
 
 **優先度說明：** 若相關字符屬於 jf7000 當務字集範圍內且默認字圖仍未使用印刷體筆形的字圖字樣，可考慮將優先度設定爲緊急或急迫。
 
+**修改理由說明：** 一般如果是映射問題或繪製問題可以接受。但如果提議修改默認字圖的情況，閣下必須提供充分的理由要求修改，包括但不限於出版物相關圖像等。請注意，倘若閣下衹提及字源字理、要求彰顯字理、引用難以被證實存在實際運用的證據或在提議修改CL版時僅引用單一字表或直接使用字書字頭而不附上一般出版物使用情況，閣下的理由將被視作是無效理由。
+
 閣下可以參考該格式製作成表格，但仍須包含以上所有項目。
 
-若無根據以上格式要求進行提交 Issue，本專案有權在不通知的情況下直接關閉相關 Issue 而無須提供任何理由。
+若無根據以上格式要求進行提交 Issue，或沒有塡寫所有項目，本專案有權在不通知的情況下直接關閉相關 Issue 而無須提供任何理由。
 
 ### 字體生成程式相關
 
@@ -65,9 +87,9 @@ English
 
 依照 SIL Open Font License 1.1 授權許可發佈，閣下可以：
 
--   可自由使用本字體，不限個人或商業用途。
--   自由分發本字體。
--   基於 SIL Open Font License 1.1 授權許可修改、二次創作本字體。
+- 可自由使用本字體，不限個人或商業用途。
+- 自由分發本字體。
+- 基於 SIL Open Font License 1.1 授權許可修改、二次創作本字體。
 
 ## Build 構建（僅提供英語）
 
@@ -75,9 +97,9 @@ English
 
 Before you begin, ensure you have met the following requirements:
 
--   Node.js >= 20.10.0 (LTS)
--   Python >= 3.12
--   Perl >= 5.38
+- Node.js >= 20.10.0 (LTS)
+- Python >= 3.12
+- Perl >= 5.38
 
 **Note:** Python is typically invoked with the `python` command. But on UNIX-like systems (macOS, Linux, etc.), the command is usually `python3`. Ensure that you use the appropriate command for your operating system and that the correct version of Python is installed.
 
