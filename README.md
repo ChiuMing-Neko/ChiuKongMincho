@@ -91,6 +91,8 @@ English
 - 自由分發本字體。
 - 基於 SIL Open Font License 1.1 授權許可修改、二次創作本字體。
 
+## 鳴謝
+
 ## Build 構建（僅提供英語）
 
 ### Prerequisites
